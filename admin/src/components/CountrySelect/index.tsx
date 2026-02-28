@@ -28,6 +28,11 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
     const parsedOptions: {[key: string]: string} = JSON.parse(countries);
     const isValidValue = !value || parsedOptions.hasOwnProperty(value);
 
+    const [displayText, setDisplayText] = React.useState('');
+    React.useEffect(() => {
+        setDisplayText(isValidValue && value ? parsedOptions[value] : '');
+    }, [value, isValidValue, countries]);
+
     return (
         <Field.Root
             name={name}
@@ -46,7 +51,8 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
                     aria-disabled={disabled}
                     disabled={disabled}
                     value={isValidValue ? value : null}
-                    textValue={isValidValue && value ? parsedOptions[value] : ''}
+                    textValue={displayText}
+                    onTextValueChange={setDisplayText}
                     onChange={(countryCode: string) => onChange(name, parsedOptions.hasOwnProperty(countryCode) ? countryCode : null)}
                     onClear={() => onChange(name, null)}
                     startIcon={isValidValue && value ? <CountryIcon code={value} /> : undefined}
