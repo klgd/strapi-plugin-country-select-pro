@@ -87,7 +87,7 @@ export default {
                     return {
                         data: {
                             ...prefixPluginTranslations(pluginTranslations.default),
-                            [`${PLUGIN_ID}.countries`]: JSON.stringify(countries.getNames(locale)) 
+                            [`${PLUGIN_ID}.countries`]: JSON.stringify(countries.getNames(locale, {select: 'alias'})) 
                         },
                         locale,
                     };
