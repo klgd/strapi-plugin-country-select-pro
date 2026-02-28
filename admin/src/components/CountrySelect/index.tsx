@@ -46,8 +46,10 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
                     aria-disabled={disabled}
                     disabled={disabled}
                     value={isValidValue ? value : null}
+                    textValue={isValidValue && value ? parsedOptions[value] : undefined}
                     onChange={(countryCode: string) => onChange(name, parsedOptions.hasOwnProperty(countryCode) ? countryCode : null)}
                     onClear={() => onChange(name, null)}
+                    startIcon={isValidValue && value ? <CountryIcon code={value} /> : undefined}
                 >
                     {Object.entries(parsedOptions).sort(([, n1], [, n2]) => n1.localeCompare(n2)).map(([countryCode, countryName]) => (
                         <ComboboxOption key={countryCode} value={countryCode} textValue={countryName}>
