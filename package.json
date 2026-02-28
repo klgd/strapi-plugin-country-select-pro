@@ -1,5 +1,5 @@
 {
-    "name": "strapi-plugin-country-select",
+    "name": "strapi-plugin-country-select-pro",
     "description": "A strapi custom field for selecting any country based on the ISO 3166-1 country code standard.",
     "keywords": [
         "strapi",
