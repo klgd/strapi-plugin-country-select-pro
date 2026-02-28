@@ -46,7 +46,7 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
                     aria-disabled={disabled}
                     disabled={disabled}
                     value={isValidValue ? value : null}
-                    textValue={isValidValue && value ? parsedOptions[value] : undefined}
+                    textValue={isValidValue && value ? parsedOptions[value] : ''}
                     onChange={(countryCode: string) => onChange(name, parsedOptions.hasOwnProperty(countryCode) ? countryCode : null)}
                     onClear={() => onChange(name, null)}
                     startIcon={isValidValue && value ? <CountryIcon code={value} /> : undefined}
