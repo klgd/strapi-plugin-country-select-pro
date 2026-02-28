@@ -38,6 +38,7 @@
     "dependencies": {
         "@strapi/design-system": "^2.0.0-rc.14",
         "@strapi/icons": "^2.0.0-rc.14",
+        "country-flag-icons": "^1.5.13",
         "i18n-iso-countries": "^7.5.0",
         "react-intl": "^7.1.0"
     },

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Field, Flex, Combobox, ComboboxOption } from '@strapi/design-system';
+import { Field, Flex, Combobox, ComboboxOption, Typography } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 import { getTranslation } from '../../utils/getTrad';
-
+import { CountryIcon } from '../CountryIcon';
 import { type InputProps, type FieldValue } from '@strapi/strapi/admin';
 
 type CountrySelectProps = InputProps &
@@ -50,7 +50,12 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
                     onClear={() => onChange(name, null)}
                 >
                     {Object.entries(parsedOptions).sort(([, n1], [, n2]) => n1.localeCompare(n2)).map(([countryCode, countryName]) => (
-                        <ComboboxOption value={countryCode} key={countryCode}>{countryName}</ComboboxOption>
+                        <ComboboxOption key={countryCode} value={countryCode} textValue={countryName}>
+                            <Flex alignItems="center" gap="4px">
+                            <CountryIcon code={countryCode} />
+                            <Typography>{countryName}</Typography>
+                            </Flex>
+                        </ComboboxOption>
                     ))}
                 </Combobox>
 
